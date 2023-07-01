@@ -33,7 +33,9 @@ img {
   width: 100%;
   display: block;
 }
-
+.pointer:hover {
+  cursor: pointer;
+}
 /*****************************/
 
 body {
@@ -327,7 +329,6 @@ footer a {
     padding: 5rem min(5vw, 3rem);
     gap: 5rem min(7vw, 3rem);
   }
-
   /*****  header  *****/
   nav {
     display: flex;
