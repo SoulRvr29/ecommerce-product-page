@@ -14,6 +14,7 @@ const cartContent = document.querySelector(".cartContent");
 const cartIcon = document.querySelector(".cart");
 const trashCan = document.querySelector(".trashCan");
 const finalPrice = document.querySelector(".finalPrice");
+const addToCart = document.querySelector(".addToCart");
 
 let actualImgNr = 1;
 let actualAmountNr = 0;
@@ -115,13 +116,8 @@ rightArrow.forEach((arrow) => {
 /*** PLUS ***/
 /************/
 plus.addEventListener("click", () => {
-  cartItems.style.display = "block";
-  cartEmpty.style.display = "none";
-  cartAmount.style.display = "block";
   actualAmountNr++;
-  finalPrice.innerHTML = `$${125 * actualAmountNr}.00`;
   actualAmount.innerHTML = actualAmountNr;
-  cartAmount.innerHTML = actualAmountNr;
 });
 /*************/
 /*** MINUS ***/
@@ -129,16 +125,27 @@ plus.addEventListener("click", () => {
 minus.addEventListener("click", () => {
   if (actualAmountNr > 0) {
     actualAmountNr--;
-    finalPrice.innerHTML = `$${125 * actualAmountNr}.00`;
-    if (actualAmountNr < 1) {
-      cartItems.style.display = "none";
-      cartEmpty.style.display = "block";
-      cartAmount.style.display = "none";
-    }
     actualAmount.innerHTML = actualAmountNr;
+  }
+});
+
+/*******************/
+/*** ADD TO CART ***/
+/*******************/
+addToCart.addEventListener("click", () => {
+  if (actualAmountNr == 0) {
+    cartItems.style.display = "none";
+    cartEmpty.style.display = "block";
+    cartAmount.style.display = "none";
+  } else {
+    cartItems.style.display = "block";
+    cartEmpty.style.display = "none";
+    cartAmount.style.display = "block";
+    finalPrice.innerHTML = `$${125 * actualAmountNr}.00`;
     cartAmount.innerHTML = actualAmountNr;
   }
 });
+
 /*************/
 /*** CART ***/
 /*************/
@@ -152,6 +159,7 @@ cartIcon.addEventListener("click", () => {
     cartPopupState = false;
   }
 });
+
 /*****************/
 /*** TRASH CAN ***/
 /*****************/
