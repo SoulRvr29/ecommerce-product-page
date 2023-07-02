@@ -1,3 +1,7 @@
+/**************************************/
+/************   ELEMENTS   ************/
+/**************************************/
+
 const thumbials = document.querySelectorAll(".thumbials img");
 const actualImg = document.querySelectorAll(".actualImg");
 const fullScr = document.querySelector(".fullScr");
@@ -15,12 +19,19 @@ const cartIcon = document.querySelector(".cart");
 const trashCan = document.querySelector(".trashCan");
 const finalPrice = document.querySelector(".finalPrice");
 const addToCart = document.querySelector(".addToCart");
+const menuBtn = document.querySelector(".menu");
+const nav = document.querySelector("nav");
+
+/***************************************/
+/********       VARIABLES       ********/
+/***************************************/
 
 let actualImgNr = 1;
 let actualAmountNr = 0;
 
-/******** EVENT LISTENERS ********/
-
+/***************************************/
+/********    EVENT LISTENERS    ********/
+/***************************************/
 /*****************/
 /*** THUMBIALS ***/
 /*****************/
@@ -146,9 +157,9 @@ addToCart.addEventListener("click", () => {
   }
 });
 
-/*************/
-/*** CART ***/
-/*************/
+/*****************/
+/*** CART ICON ***/
+/*****************/
 let cartPopupState = false;
 cartIcon.addEventListener("click", () => {
   if (cartPopupState == false) {
@@ -170,4 +181,21 @@ trashCan.addEventListener("click", () => {
   cartItems.style.display = "none";
   cartEmpty.style.display = "block";
   cartAmount.style.display = "none";
+});
+
+/*******************/
+/*** MENU BUTTON ***/
+/*******************/
+let menuState = false; // false: nav-off, true: nav-on
+menuBtn.addEventListener("click", () => {
+  console.log(menuBtn);
+  if (menuState == false) {
+    document.querySelector(".menu img").src = "images/icon-close.svg";
+    menuState = !menuState;
+    nav.classList.add("display");
+  } else {
+    document.querySelector(".menu img").src = "images/icon-menu.svg";
+    menuState = !menuState;
+    nav.classList.remove("display");
+  }
 });

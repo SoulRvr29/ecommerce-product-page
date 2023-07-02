@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
 
+/******************/
+/***** COLORS *****/
+/******************/
 :root {
   /* ### Primary */
   --Orange: rgb(255, 125, 26);
@@ -14,8 +17,9 @@
   --Black: hsl(0, 0%, 0%);
   --Black-75: hsla(0, 0%, 0%, 0.75);
 }
-
-/* RESET */
+/*****************/
+/***** RESET *****/
+/*****************/
 *,
 *::before,
 *::after {
@@ -48,7 +52,9 @@ body {
   flex-direction: column;
   align-items: center;
 }
+/*****************/
 /*****  NAV  *****/
+/*****************/
 nav {
   display: none;
   position: absolute;
@@ -69,7 +75,12 @@ ul {
 li {
   margin: 1.5rem 0;
 }
+.display {
+  display: flex;
+}
+/********************/
 /*****  HEADER  *****/
+/********************/
 header {
   display: flex;
   justify-content: space-between;
@@ -92,6 +103,7 @@ main {
 }
 .menu {
   width: 1rem;
+  z-index: 2;
 }
 .logo {
   width: 9rem;
@@ -126,7 +138,9 @@ main {
   border: 2px solid var(--Orange);
   border-radius: 50%;
 }
+/**************************/
 /*****  CART CONTENT  *****/
+/**************************/
 .cartContent {
   display: grid;
   display: none;
@@ -191,7 +205,9 @@ main {
   border: none;
   height: 3.5rem;
 }
+/*********************/
 /*****  GALLERY  *****/
+/*********************/
 .gallery {
   position: relative;
   display: flex;
@@ -223,8 +239,12 @@ main {
 .rightArrow img {
   width: 0.6rem;
 }
-
+.thumbials img {
+  display: none;
+}
+/*********************************/
 /*****  Full Screen Gallery  *****/
+/*********************************/
 .fullScr {
   display: none;
   position: absolute;
@@ -255,8 +275,8 @@ main {
   background-color: var(--White);
   border-radius: 10rem;
 }
-.fullScr .leftArrow img:hover,
-.fullScr .rightArrow img:hover {
+.fullScr .leftArrow:hover img,
+.fullScr .rightArrow:hover img {
   filter: invert(50%) sepia(73%) saturate(711%) hue-rotate(344deg)
     brightness(100%) contrast(104%);
 }
@@ -273,7 +293,9 @@ main {
   filter: invert(50%) sepia(73%) saturate(711%) hue-rotate(344deg)
     brightness(100%) contrast(104%);
 }
+/*************************/
 /*****  DESCRIPTION  *****/
+/*************************/
 .description {
   padding: 1.3rem 1.8rem;
 }
@@ -368,16 +390,25 @@ p {
 .checkoutBtn:hover {
   filter: opacity(0.5);
 }
+/********************/
 /*****  FOOTER  *****/
+/********************/
 footer {
-  font-size: 11px;
+  font-size: 12px;
+  font-weight: bold;
   text-align: center;
 }
 footer a {
   color: hsl(228, 45%, 44%);
+  transition: all 0.3s;
 }
-
+footer a:hover {
+  color: var(--Orange);
+  text-shadow: 0 0 15px rgba(255, 125, 26, 30%);
+}
+/*************************/
 /*****  MEDIA QUERY  *****/
+/*************************/
 @media screen and (min-width: 800px) {
   header {
     padding: 0;
@@ -459,6 +490,7 @@ footer a {
     width: 100%;
   }
   .thumbials img {
+    display: block;
     width: 5rem;
     border-radius: 0.5rem;
     transition: filter 0.3s;
