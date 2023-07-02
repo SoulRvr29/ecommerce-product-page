@@ -1,12 +1,24 @@
 const thumbials = document.querySelectorAll(".thumbials img");
-let actualImg = document.querySelectorAll(".actualImg");
-let actualImgNr = 1;
-console.log(self.innerWidth);
-
+const actualImg = document.querySelectorAll(".actualImg");
 const fullScr = document.querySelector(".fullScr");
 const leftArrow = document.querySelectorAll(".leftArrow");
 const rightArrow = document.querySelectorAll(".rightArrow");
 const closing = document.querySelector(".close");
+const plus = document.querySelector(".plus");
+const minus = document.querySelector(".minus");
+const actualAmount = document.querySelector(".actualAmount");
+const cartAmount = document.querySelector(".cartAmount");
+const cartItems = document.querySelector(".cartItems");
+const cartEmpty = document.querySelector(".cartContent > p");
+const cartContent = document.querySelector(".cartContent");
+const cartIcon = document.querySelector(".cart");
+const trashCan = document.querySelector(".trashCan");
+const finalPrice = document.querySelector(".finalPrice");
+
+let actualImgNr = 1;
+let actualAmountNr = 0;
+
+/******** EVENT LISTENERS ********/
 
 /*****************/
 /*** THUMBIALS ***/
@@ -19,24 +31,32 @@ thumbials.forEach((thumb) => {
     });
 
     if (thumb.alt == "product 1") {
-      actualImg.forEach((image) => {
-        image.src = "images/image-product-1.jpg";
-      });
+      if (fullScr.style.display == "grid") {
+        actualImg[1].src = "images/image-product-1.jpg";
+      } else {
+        actualImg[0].src = "images/image-product-1.jpg";
+      }
     }
     if (thumb.alt == "product 2") {
-      actualImg.forEach((image) => {
-        image.src = "images/image-product-2.jpg";
-      });
+      if (fullScr.style.display == "grid") {
+        actualImg[1].src = "images/image-product-2.jpg";
+      } else {
+        actualImg[0].src = "images/image-product-2.jpg";
+      }
     }
     if (thumb.alt == "product 3") {
-      actualImg.forEach((image) => {
-        image.src = "images/image-product-3.jpg";
-      });
+      if (fullScr.style.display == "grid") {
+        actualImg[1].src = "images/image-product-3.jpg";
+      } else {
+        actualImg[0].src = "images/image-product-3.jpg";
+      }
     }
     if (thumb.alt == "product 4") {
-      actualImg.forEach((image) => {
-        image.src = "images/image-product-4.jpg";
-      });
+      if (fullScr.style.display == "grid") {
+        actualImg[1].src = "images/image-product-4.jpg";
+      } else {
+        actualImg[0].src = "images/image-product-4.jpg";
+      }
     }
     thumb.style.border = "2px solid var(--Orange)";
   });
@@ -66,9 +86,11 @@ leftArrow.forEach((arrow) => {
     console.log(actualImgNr);
     if (actualImgNr > 1) {
       actualImgNr--;
-      actualImg.forEach((image) => {
-        image.src = `images/image-product-${actualImgNr}.jpg`;
-      });
+      if (self.innerWidth > 800) {
+        actualImg[1].src = `images/image-product-${actualImgNr}.jpg`;
+      } else {
+        actualImg[0].src = `images/image-product-${actualImgNr}.jpg`;
+      }
     }
   });
 });
@@ -78,12 +100,66 @@ leftArrow.forEach((arrow) => {
 /*******************/
 rightArrow.forEach((arrow) => {
   arrow.addEventListener("click", () => {
-    console.log(actualImgNr);
+    // console.log(actualImgNr);
     if (actualImgNr < 4) {
       actualImgNr++;
-      actualImg.forEach((image) => {
-        image.src = `images/image-product-${actualImgNr}.jpg`;
-      });
+      if (self.innerWidth > 800) {
+        actualImg[1].src = `images/image-product-${actualImgNr}.jpg`;
+      } else {
+        actualImg[0].src = `images/image-product-${actualImgNr}.jpg`;
+      }
     }
   });
+});
+/************/
+/*** PLUS ***/
+/************/
+plus.addEventListener("click", () => {
+  cartItems.style.display = "block";
+  cartEmpty.style.display = "none";
+  cartAmount.style.display = "block";
+  actualAmountNr++;
+  finalPrice.innerHTML = `$${125 * actualAmountNr}.00`;
+  actualAmount.innerHTML = actualAmountNr;
+  cartAmount.innerHTML = actualAmountNr;
+});
+/*************/
+/*** MINUS ***/
+/*************/
+minus.addEventListener("click", () => {
+  if (actualAmountNr > 0) {
+    actualAmountNr--;
+    finalPrice.innerHTML = `$${125 * actualAmountNr}.00`;
+    if (actualAmountNr < 1) {
+      cartItems.style.display = "none";
+      cartEmpty.style.display = "block";
+      cartAmount.style.display = "none";
+    }
+    actualAmount.innerHTML = actualAmountNr;
+    cartAmount.innerHTML = actualAmountNr;
+  }
+});
+/*************/
+/*** CART ***/
+/*************/
+let cartPopupState = false;
+cartIcon.addEventListener("click", () => {
+  if (cartPopupState == false) {
+    cartContent.style.display = "grid";
+    cartPopupState = true;
+  } else {
+    cartContent.style.display = "none";
+    cartPopupState = false;
+  }
+});
+/*****************/
+/*** TRASH CAN ***/
+/*****************/
+trashCan.addEventListener("click", () => {
+  actualAmountNr = 0;
+  actualAmount.innerHTML = actualAmountNr;
+  cartAmount.innerHTML = actualAmountNr;
+  cartItems.style.display = "none";
+  cartEmpty.style.display = "block";
+  cartAmount.style.display = "none";
 });
