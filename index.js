@@ -38,7 +38,6 @@ let actualAmountNr = 0;
 /*****************/
 thumbials.forEach((thumb) => {
   thumb.addEventListener("click", () => {
-    // actualImgNr = thumb.alt.at(-1);
     thumbials.forEach((thumb) => {
       thumb.style.border = "none";
     });
@@ -113,7 +112,6 @@ leftArrow.forEach((arrow) => {
 /*******************/
 rightArrow.forEach((arrow) => {
   arrow.addEventListener("click", () => {
-    // console.log(actualImgNr);
     if (actualImgNr < 4) {
       actualImgNr++;
       if (self.innerWidth > 800) {
@@ -192,13 +190,11 @@ menuBtn.addEventListener("click", () => {
   console.log(menuBtn);
   if (menuState == false) {
     document.querySelector(".menu img").src = "images/icon-close.svg";
-    // navBkg.style.display = "block";
     navBkg.classList.add("display");
     menuState = !menuState;
     nav.classList.add("display");
   } else {
     document.querySelector(".menu img").src = "images/icon-menu.svg";
-    // navBkg.style.display = "none";
     navBkg.classList.remove("display");
     menuState = !menuState;
     nav.classList.remove("display");

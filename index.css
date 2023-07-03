@@ -51,6 +51,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation: liFade 1s;
 }
 /*****************/
 /*****  NAV  *****/
@@ -61,13 +62,12 @@ nav {
   background-color: var(--White);
   left: 0;
   top: 0;
-  z-index: 2;
+  z-index: 4;
   height: 100vh;
   width: 65%;
   animation: navSlide 1s;
 }
 ul {
-  z-index: 2;
   list-style-type: none;
   font-size: 1.25rem;
   font-weight: 700;
@@ -86,7 +86,7 @@ li:hover {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 3;
   width: 100vw;
   height: 100vh;
   background-color: var(--Black-75);
@@ -95,6 +95,9 @@ li:hover {
   display: flex;
 }
 
+/************************/
+/*****  ANIMATIONS  *****/
+/************************/
 @keyframes navSlide {
   from {
     width: 0%;
@@ -122,7 +125,7 @@ header {
   justify-content: space-between;
   padding: 1.5rem;
   max-width: 35rem;
-  height: 4rem;
+  height: 6rem;
   width: 100%;
 }
 
@@ -130,6 +133,7 @@ main {
   max-width: 35rem;
   display: grid;
   justify-items: center;
+  position: relative;
 }
 .headerL,
 .headerR {
@@ -139,7 +143,7 @@ main {
 }
 .menu {
   width: 1rem;
-  z-index: 3;
+  z-index: 5;
 }
 .logo {
   width: 9rem;
@@ -178,7 +182,6 @@ main {
 /*****  CART CONTENT  *****/
 /**************************/
 .cartContent {
-  display: grid;
   display: none;
   justify-content: center;
   align-items: start;
@@ -201,7 +204,6 @@ main {
   width: 100%;
 }
 .cartContent > p {
-  /* display: none; */
   margin-top: 9rem;
   font-size: 1rem;
   color: var(--Dark-grayish-blue);
@@ -417,7 +419,6 @@ p {
   font-size: 1rem;
   font-weight: 700;
   border-radius: 0.5rem;
-  /* margin: 3rem 0; */
 }
 .addToCart img {
   width: 1rem;
@@ -444,9 +445,9 @@ footer a:hover {
   color: var(--Orange);
   text-shadow: 0 0 15px rgba(255, 125, 26, 30%);
 }
-/*************************/
-/*****  MEDIA QUERY  *****/
-/*************************/
+/**************************************/
+/*****  MEDIA QUERY   WIDTH > 800 *****/
+/**************************************/
 @media screen and (min-width: 800px) {
   header {
     padding: 0;
@@ -475,6 +476,7 @@ footer a:hover {
     margin: 0;
     order: 2;
     padding: 0;
+    animation: none;
   }
   .navBkg {
     display: none;
@@ -483,7 +485,7 @@ footer a:hover {
     display: inline-flex;
     align-items: center;
     margin: 0 min(1vw, 8rem);
-    height: 4rem;
+    height: 6rem;
     transition: color 0.5s;
   }
   li:hover {
@@ -510,8 +512,9 @@ footer a:hover {
     width: 3rem;
   }
   .cartContent {
-    top: 3rem;
-    right: 5rem;
+    z-index: 4;
+    top: -1.5rem;
+    right: -1rem;
     box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.253);
   }
   /*****  gallery  *****/
@@ -548,7 +551,7 @@ footer a:hover {
     cursor: pointer;
   }
   .arrows {
-    display: none;
+    /* display: none; */
   }
   .leftArrow,
   .rightArrow {
