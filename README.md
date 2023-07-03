@@ -26,7 +26,6 @@ Users should be able to:
 
 ![](./screenshot.jpeg)
 
-![](./screenshot-mobile1.jpeg)
 ![](./screenshot-mobile2.jpeg)
 ![](./screenshot-mobile3.jpeg)
 
