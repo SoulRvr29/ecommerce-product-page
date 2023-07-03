@@ -18,6 +18,7 @@ const cartContent = document.querySelector(".cartContent");
 const cartIcon = document.querySelector(".cart");
 const trashCan = document.querySelector(".trashCan");
 const finalPrice = document.querySelector(".finalPrice");
+const finalAmount = document.querySelector(".finalAmount");
 const addToCart = document.querySelector(".addToCart");
 const menuBtn = document.querySelector(".menu");
 const nav = document.querySelector("nav");
@@ -151,6 +152,7 @@ addToCart.addEventListener("click", () => {
     cartItems.style.display = "block";
     cartEmpty.style.display = "none";
     cartAmount.style.display = "block";
+    finalAmount.innerHTML = `${actualAmountNr}`;
     finalPrice.innerHTML = `$${125 * actualAmountNr}.00`;
     cartAmount.innerHTML = actualAmountNr;
   }
