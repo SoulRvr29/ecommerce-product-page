@@ -21,6 +21,7 @@ const finalPrice = document.querySelector(".finalPrice");
 const addToCart = document.querySelector(".addToCart");
 const menuBtn = document.querySelector(".menu");
 const nav = document.querySelector("nav");
+const navBkg = document.querySelector(".navBkg");
 
 /***************************************/
 /********       VARIABLES       ********/
@@ -191,10 +192,14 @@ menuBtn.addEventListener("click", () => {
   console.log(menuBtn);
   if (menuState == false) {
     document.querySelector(".menu img").src = "images/icon-close.svg";
+    // navBkg.style.display = "block";
+    navBkg.classList.add("display");
     menuState = !menuState;
     nav.classList.add("display");
   } else {
     document.querySelector(".menu img").src = "images/icon-menu.svg";
+    // navBkg.style.display = "none";
+    navBkg.classList.remove("display");
     menuState = !menuState;
     nav.classList.remove("display");
   }

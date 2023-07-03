@@ -61,11 +61,13 @@ nav {
   background-color: var(--White);
   left: 0;
   top: 0;
-  z-index: 1;
+  z-index: 2;
   height: 100vh;
   width: 65%;
+  animation: navSlide 1s;
 }
 ul {
+  z-index: 2;
   list-style-type: none;
   font-size: 1.25rem;
   font-weight: 700;
@@ -74,9 +76,43 @@ ul {
 }
 li {
   margin: 1.5rem 0;
+  animation: liFade 1s;
+}
+li:hover {
+  color: var(--Orange);
+}
+.navBkg {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--Black-75);
 }
 .display {
   display: flex;
+}
+
+@keyframes navSlide {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 65%;
+  }
+}
+@keyframes liFade {
+  0% {
+    opacity: 0%;
+  }
+  20% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
 /********************/
 /*****  HEADER  *****/
@@ -103,7 +139,7 @@ main {
 }
 .menu {
   width: 1rem;
-  z-index: 2;
+  z-index: 3;
 }
 .logo {
   width: 9rem;
@@ -146,7 +182,7 @@ main {
   display: none;
   justify-content: center;
   align-items: start;
-  z-index: 1;
+  z-index: 2;
   position: absolute;
   background-color: var(--White);
   margin: 0.5rem;
@@ -154,6 +190,7 @@ main {
   width: 90%;
   max-width: 350px;
   height: 16rem;
+  animation: liFade 1s;
 }
 .cartContent h4 {
   font-size: 1rem;
@@ -215,6 +252,7 @@ main {
   justify-content: center;
   height: 19rem;
   overflow: hidden;
+  animation: liFade 1s;
 }
 .arrows {
   position: absolute;
@@ -438,6 +476,9 @@ footer a:hover {
     order: 2;
     padding: 0;
   }
+  .navBkg {
+    display: none;
+  }
   li {
     display: inline-flex;
     align-items: center;
@@ -502,14 +543,20 @@ footer a:hover {
     filter: opacity(50%);
     cursor: pointer;
   }
+
   .actualImg:hover {
     cursor: pointer;
+  }
+  .arrows {
+    display: none;
   }
   .leftArrow,
   .rightArrow {
     display: none;
   }
-
+  .fullScr {
+    display: none;
+  }
   /*****  description  *****/
   .description {
     flex: 1.5;
