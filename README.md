@@ -31,7 +31,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [Click here](https://www.frontendmentor.io/solutions/ecommerce-product-page-X0ZdcN-Li6)
 - Live Site URL: [Click here](https://soulrvr29.github.io/ecommerce-product-page/)
 
 ### Built with
