@@ -32,7 +32,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Click here]([https://your-live-site-url.com](https://soulrvr29.github.io/ecommerce-product-page/))
+- Live Site URL: [Click here](https://github.com/SoulRvr29/ecommerce-product-page/deployments/activity_log?environment=github-pages)
 
 ### Built with
 
