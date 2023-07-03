@@ -5,7 +5,7 @@ This is a solution to the [E-commerce product page challenge on Frontend Mentor]
 ## Table of contents
 
 - [The challenge](#the-challenge)
-- [Screenshot](#screenshot)
+- [Screenshots](#screenshots)
 - [Links](#links)
 - [Built with](#built-with)
 - [What I learned](#what-i-learned)
@@ -22,9 +22,9 @@ Users should be able to:
 - Add items to the cart
 - View the cart and remove items from it
 
-### Screenshot
+### Screenshots
 
-![](./screenshot.jpg)
+![](./screenshot.jpeg)
 ![](./screenshot-mobile1.jpeg)
 ![](./screenshot-mobile2.jpeg)
 ![](./screenshot-mobile3.jpeg)
